@@ -16,7 +16,9 @@ export default function ChatBot() {
     setLoading(true);
 
     try {
-      const res = await axios.post("https://storybot-backend1.onrender.com", { userMessage: input });
+      const res = await axios.post("https://storybot-backend1.onrender.com/chat", {
+  userMessage: input,
+});
       setMessages(prev => [...prev, { from: "bot", text: res.data.reply }]);
     } catch (err) {
       console.error(err);
